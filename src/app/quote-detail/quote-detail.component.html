@@ -1,1 +1,8 @@
-<p>quote-detail works!</p>
+<p>author {{quote.author}}, posted by {{quote.person}} posted {{quote.datePosted}} </p>
+<button>upvote
+    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+</button>
+<button style="margin-left: 100px;">downvote
+    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+</button>
+<button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete Quote</button>
