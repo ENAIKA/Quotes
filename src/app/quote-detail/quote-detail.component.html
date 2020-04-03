@@ -1,8 +1,11 @@
-<p>author {{quote.author}}, posted by {{quote.person}} posted {{quote.datePosted}} </p>
-<button>upvote
-    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-</button>
-<button style="margin-left: 100px;">downvote
-    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-</button>
-<button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete Quote</button>
+<p>submitted by {{quote.person}}
+    <button (click)='quoteUpVoted()'>upvote
+        <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{quote.upVote}}
+    </button>
+    <button (click)='quoteDownVoted()' style="margin-left: 50px;">downvote
+        <i class="fa fa-thumbs-down" aria-hidden="true"></i> {{quote.downVote}}
+    </button> posted {{quote.datePosted|timeElapsed}}
+    <span style="margin-left: 10px;"(click)='quoteDelete(true)' class="text-danger">
+         Delete Quote
+    </span>
+</p>
