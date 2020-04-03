@@ -1,21 +1,33 @@
-<div class="container">
-    <h1>QUOTES</h1>
-    <hr>
-  
-    <div class="row">
-      <div class="col-md-6">
-        <div *ngFor='let quote of quotes;let i=index'>
-          <div class="card">
-              <h3> {{quote.quote}} </h3>
-            
-          </div>
-  
-          
-            <app-quote-detail  [quote]='quote' (isDeleted) = 'deleteQuote($event,i)'></app-quote-detail>
-          
+<div class="container ">
+  <nav class="navbar navbar-light bg-success">
+    <span class="navbar-text-center  h1"> Quotes</span>
+  </nav>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div *ngFor='let quote of quotes;let i=index'>
+        <div class="card">
+          <h3> {{quote.quote}} </h3>
+          <div class="text-right">~{{quote.author}}</div>
+        </div>
+        <app-quote-detail [quote]='quote' (isDeleted)='deleteQuote($event,i)'></app-quote-detail>
+        <hr>
+      </div>
+    </div>
+    <div class="col-md-4" style="width: 100%; position: -webkit-sticky;position: sticky;">
+      <div>
+        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+      </div><br>
+      <div style="height: 300px; width: 100%;background-image:url('assets/images/drops.jpg!d')">
+        <div class="center">
+          <form action=" mailto:naikaesther5@gmail.com" method="post" enctype="text/plain">
+            <h4 class="text-dark">Subscribe to our mailing list</h4>
+            <input id="email" type="email" placeholder="email address" required><br><br>
+            <button type="button" class=btn-success>Subscribe</button>
+          </form>
         </div>
       </div>
-      <div class="col-md-6">
-        <app-quote-form ></app-quote-form>
-   </div>
     </div>
+  </div>
+</div>
