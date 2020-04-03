@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-primary">
     <h2 class="text-center">Add New Quote</h2>
     <hr>
     <form (ngSubmit)='submitQuote()' #quoteForm='ngForm'>
@@ -12,8 +12,8 @@
         </div>
         <div class="form-group">
             <label for="author">Author</label>
-            <input type="text" required class="form-control" id="author" [(ngModel)]="newQuote.author" name="author"
-                #author='ngModel'>
+            <input type="text"  class="form-control" id="author" [(ngModel)]="newQuote.author" name="author"
+                #author='ngModel' required>
             <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
                 <p>Author is required</p>
             </div>
@@ -21,12 +21,12 @@
         <div class="form-group">
 
             <label for="person">Submitted By</label>
-            <input type="text" required class="form-control" id="person" [(ngModel)]="newQuote.person" name="person"
-                #person='ngModel'>
+            <input type="text"  class="form-control" id="person" [(ngModel)]="newQuote.person" name="person"
+                #person='ngModel' required>
             <div [hidden]="person.valid || person.pristine" class="alert alert-danger">
                 <p>Your name is required</p>
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Add Quote</button>
+        <button type="submit"[disabled]="!quoteForm.valid" class="btn btn-success">Add Quote</button>
     </form>
 </div>
